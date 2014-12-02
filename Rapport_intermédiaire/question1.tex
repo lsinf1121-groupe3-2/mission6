@@ -1,6 +1,42 @@
 %%Énoncé
-Enoncé
+ Un graphe
+G
+comportant
+n
+noeuds et
+m
+arêtes est représenté par la structure
+Edge List
+et les conteneurs
+V
+et
+E
+sont supposés implémentés par des listes
+doublement chaînées. Justifiez pourquoi la complexité temporelle de la méthode
+removeVertex
+est en
+O
+(
+m
+)
+alors que les complexités des méthodes
+removeEdge
+et
+insertVertex
+sont en
+O
+(1)
+? Votre réponse à cette question dépend-
+elle de la structure de données utilisées pour mémoriser les conteneurs
+V
+et
+E
+?
+En quoi le concept de
+location-aware entry
+est-il important pour justifier certaines
+de ces complexités ?
 %%Auteur
-Auteur
+(Boris)
 %%Réponse
-Réponse
+Lorsqu'on supprime un nœud, il faut également supprimer toutes les arêtes incidentes à ce nœud. Comme la structure de donnée décrite ne nous permet pas de savoir à l'avance le nombre d'arêtes incidentes au nœud qu'on supprime, on doit obligatoirement parcourir les arêtes, et pour chaque arête vérifier si elle est incidente au nœud qu'on retire, et si c'est le cas, la retirer. RemoveVertex est donc en $O(m)$, m étant le nombre d'arêtes. La méthode removeEdge est en $0(1)$ car on ne doit pas supprimer les noeuds adjacents à l'arête, et on doit uniquement supprimer l'arête en question. Si cette arête est location-aware, on peut immediatement la trouver sans devoir parcourir la structure de données, et la méthode removeEdge se fera alors en $O(1)$. InsertVertex se fait en $O(1)$ car elle ajoute simplement un noeud à la fin de la liste, de nouveau sans devoir parcourir celle ci. Cette réponse dépend bien sur de la structure de données qui stocke V et E. On pourrait par exemple avoir une liste de noeuds, et une liste de listes de noeuds, où les éléments de la deuxième liste seraient des listes des noeuds adjacents aux ne-oeud correspondant dans la première liste. removeVertex se ferait alors en $O(n)$ car il faudrait parcourir les noeuds et pas les sommets, insertVertex toujours en $O(1)$, et removeEdge en $O(1)$ aussi, si on connait les deux noeuds incidents de l'arête qu'on veut enlever. Le concept de location-aware entry est donc important car il permet de trouver un élément en $O(1)$ si on a une référence vers sa position. Ceci permet d'éviter des recherches, qui sont toujours en complexité temporelle linéaire.
