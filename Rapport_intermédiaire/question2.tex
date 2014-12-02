@@ -1,6 +1,15 @@
 %%Énoncé
-Enoncé
+Quelle est la complexité temporelle d'un parcours en largeur d'abord pour un
+graphe simple comportant n nœuds lorsque ce graphe est représenté par une matrice
+d'adjacence ? Justifiez votre réponse 
 %%Auteur
-Auteur
+(Jonathan)
 %%Réponse
-Réponse
+
+Premièrement expliquons ce qu'on entends par un parcours en largeur d'abord d'un graphe. Ce type de parcoure permet de parcourir le graphe de manière itérative. Contrairement au parcours de longueur d'abords, le parcours de largeur d'abord commence par un nœud ensuite on parcoure tous les enfants du niveau inférieurs, puis une fois le niveau inférieurs parcouru on parcoure les enfants du niveau encore plus inférieur et ainsi de suite.
+
+Deuxièmement un matrice d'adjacence d'un graphe est la matrice de taille $n * n$ ( où $n$ est le nombre de nœuds) dont les coefficients $i$ et $j$ sont égaux au nombre d'arête entre les sommets $i$ et $j$. A noter que si le graphe n'est pas orienté, la matrice d'adjacence est symétrique.
+
+Un parcours en profondeur d'abord d'un graphe simple représenté par une matrice d'adjacence binaire (le graphe est simple, il n'y que des 1 ou 0 dans la matrice) va se faire sous la forme d'un parcours des lignes ou des colonnes d'un tableau à deux dimensions représentant la matrice.
+
+Pour chaque i\up{ème) lignes ou colonnes on va devoir parcourir chaque j\up{ème) des colonnes ou des lignes correspondantes. Car toutes les cases du tableau seront vérifiées même si la case est vide qui correspond à une valeur est nulle. Le programme aura donc une complexité temporelle de $O(n^2)$ pour cet algorithme de parcours.
