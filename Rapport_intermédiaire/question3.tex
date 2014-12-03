@@ -1,6 +1,7 @@
 %%Énoncé
-Enoncé
-%%Auteur
-Auteur
-%%Réponse
-Réponse
+\textit{Une file peut-elle être utilisée au lieu d’une pile comme structure de données auxiliaire lors du tri topologique d’un graphe ? Sinon, pourquoi ? Si oui, le résultat du tri topologique est-il différent par rapport au cas où une pile est utilisée ? Jamais, parfois, toujours ?} (Sundeep)\\
+
+Le \textbf{tri topologique} consiste à effectuer un parcours en profondeur des différents sommets d'un graphe (acyclique) de sorte que s'il y a un arc $(i, j)$, alors on renvoie la liste des sommets dans l'ordre croissant tel que $i$ $<$ $j$. \\
+Dans le cas d'une pile, c'est ce parcours en \textit{profondeur} que l'on utilise. 
+
+Oui, une file peut être utilisée à la place d'une pile comme structure de données auxiliaire. Néanmoins, les résultats du tri topologique avec pile ou file seront \underline{différents} dans le sens où les tris dans chacune de ces structures de données sont différents: dans la pile, on utilise \textit{LIFO} tandis que pour une file, on utilise \textit{FIFO}. \\
