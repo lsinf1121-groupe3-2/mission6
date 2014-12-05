@@ -5,5 +5,5 @@ des structures de données utilisées, dans la mesure où ces hypothèses
 seraient importantes pour justifier la complexité annoncée.%%Auteur
 (Alexandre)\\
 %%Réponse
-Soit G, un graphe représenté à l'aide d'une structure utilisant les listes d'adjacence. Soit n le nombre de noeud et M le nombre d'arête de G.
-Si D est réalisé à l'aide d'une file de priorité, la complexité de la fonction $MaxBandWidth(G, a, b)$ est $O((n+m)log n)$
+
+Soit n et m, respectivement, le nombre de nœuds et d'arêtes du graphe G. Nous représentons le graphe G avec une "adjacency list structure". Son implémentation n'influence pas à elle seule le complexité de l'algorithme de la fonction $MaxBandWidth(G, a, b)$, il faut également tenir compte de la file de priorité où les mises à jour sont réalisées en log(n). Donc, nous pouvons déterminer la complexité de l'algorithme de la fonction $MaxBandWidth(G, a, b)$ comme étant égale à O((n+m)log(n)).
