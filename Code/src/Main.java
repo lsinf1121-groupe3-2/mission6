@@ -1,3 +1,5 @@
+import controller.Controller;
+
 
 
 public class Main{
@@ -6,6 +8,7 @@ public class Main{
 	 * @param args
 	 */
 	public static void main(String[] args){
-		System.out.println("Hello François. This is a main =D");
+		Controller controller = new Controller();
+		controller.start(args);
 	}
 }
