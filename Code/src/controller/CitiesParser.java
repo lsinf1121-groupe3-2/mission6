@@ -91,6 +91,9 @@ public class CitiesParser {
 			alreadyAddedVertices.put(city2, vertex);
 		}
 		graph.insertEdge(alreadyAddedVertices.get(city1), alreadyAddedVertices.get(city2), linkCost);
+		if (linkCost > graph.getHeaviestEdge()) {
+			graph.setHeaviestEdge(linkCost);
+		}
 	}
 
 	private void closeReader() throws IOException {

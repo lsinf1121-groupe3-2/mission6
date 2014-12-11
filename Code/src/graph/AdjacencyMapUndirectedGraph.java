@@ -2,6 +2,7 @@ package graph;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -14,7 +15,16 @@ import java.util.Map;
 public class AdjacencyMapUndirectedGraph<V,E> {
 	private ArrayList<Vertex<V, E>> vertices;
 	private ArrayList<Edge<V, E>> edges;
+	private int heaviestEdge;
 	
+	public int getHeaviestEdge() {
+		return heaviestEdge;
+	}
+
+	public void setHeaviestEdge(int heaviestEdge) {
+		this.heaviestEdge = heaviestEdge;
+	}
+
 	public AdjacencyMapUndirectedGraph(){
 		vertices = new ArrayList<>();
 		edges = new ArrayList<>();
@@ -30,6 +40,9 @@ public class AdjacencyMapUndirectedGraph<V,E> {
 	}
 	public Vertex<V, E>[] endVertices(Edge<V, E> e){
 		return e.getEndpoints();
+	}
+	public ArrayList<Vertex<V, E>> getVertices(){
+		return vertices;
 	}
 	
 	public Vertex<V, E> opposite(Vertex<V, E> v, Edge<V, E> e) throws IllegalArgumentException {
@@ -48,6 +61,10 @@ public class AdjacencyMapUndirectedGraph<V,E> {
 		return v;
 	}
 	
+	public void insertVertex(Vertex<V, E> v) {
+		vertices.add(v);
+	}
+	
 	public Edge<V, E> insertEdge(Vertex<V, E> u, Vertex<V, E> v, E element) throws IllegalArgumentException{
 		if (getEdge(u,v)==null) {
 			Edge<V, E> e = new Edge<>(u,v,element);
@@ -64,7 +81,7 @@ public class AdjacencyMapUndirectedGraph<V,E> {
 		e.getEndpoints()[1].getEdges().remove(e);
 		edges.remove(e);
 	}
-	public void removeVertix(Vertex<V, E> v) {
+	public void removeVertex(Vertex<V, E> v) {
 		for (Edge<V, E> e : v.getEdges().values()){
 			removeEdge(e);
 		}

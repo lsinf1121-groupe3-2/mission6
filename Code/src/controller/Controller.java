@@ -22,7 +22,6 @@ public class Controller {
 
 	public void start(String[] args) {
 		this.parseFile(args);
-		
 	}
 	
 	private void parseFile(String[] args){
