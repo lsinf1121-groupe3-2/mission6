@@ -1,6 +1,6 @@
 package controller;
 
-import graph.AdjancencyMapUndirectedGraph;
+import graph.AdjacencyMapUndirectedGraph;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -14,7 +14,7 @@ import controller.exceptions.UncorrectLineException;
  */
 public class Controller {
 	CitiesParser citiesParser;
-	AdjancencyMapUndirectedGraph<Integer,Integer> graph;
+	AdjacencyMapUndirectedGraph<Integer,Integer> graph;
 	
 	public Controller() {
 		citiesParser = new CitiesParser();

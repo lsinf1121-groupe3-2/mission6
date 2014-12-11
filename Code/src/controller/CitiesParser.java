@@ -1,6 +1,6 @@
 package controller;
 
-import graph.AdjancencyMapUndirectedGraph;
+import graph.AdjacencyMapUndirectedGraph;
 import graph.Vertex;
 
 import java.io.BufferedReader;
@@ -26,11 +26,11 @@ import controller.exceptions.UncorrectLineException;
  */
 public class CitiesParser {
 	BufferedReader br;
-	AdjancencyMapUndirectedGraph<Integer,Integer> graph;
+	AdjacencyMapUndirectedGraph<Integer,Integer> graph;
 	Map<Integer, Vertex<Integer, Integer>> alreadyAddedVertices;
 	
 	public CitiesParser(){
-		graph = new AdjancencyMapUndirectedGraph<>();
+		graph = new AdjacencyMapUndirectedGraph<>();
 		alreadyAddedVertices = new HashMap<>();
 	}
 	
@@ -46,7 +46,7 @@ public class CitiesParser {
 	 * @throws IOException Exception lancée si une erreur d'ouverture, de lecture ou de fermeture du fichier survient.
 	 * @throws IllegalArgumentException Exception lancée si un lien entre 2 villes est ajouté 2 fois.
 	 */
-	public AdjancencyMapUndirectedGraph<Integer,Integer> parseCitiesFile(String citiesFilePath) throws UncorrectLineException, FileNotFoundException, IOException, IllegalArgumentException{
+	public AdjacencyMapUndirectedGraph<Integer,Integer> parseCitiesFile(String citiesFilePath) throws UncorrectLineException, FileNotFoundException, IOException, IllegalArgumentException{
 		this.initializeReader(citiesFilePath);
 		
 		String readLine = "";
