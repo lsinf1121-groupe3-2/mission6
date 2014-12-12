@@ -1,6 +1,7 @@
 package controller;
 
 import graph.AdjacencyMapUndirectedGraph;
+import graph.MSTGraph;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -17,6 +18,7 @@ public class Controller {
 	CitiesParser citiesParser;
 	AdjacencyMapUndirectedGraph<Integer,Integer> graph;
 	String file_name = "result.txt";
+	MSTGraph mst;
 	
 	public Controller() {
 		citiesParser = new CitiesParser();
@@ -24,6 +26,7 @@ public class Controller {
 
 	public void start(String[] args) {
 		this.parseFile(args);
+		mst = new MSTGraph(graph);
 		this.parseGraph(args);
 	}
 	
@@ -49,7 +52,7 @@ public class Controller {
 			this.file_name = args[1];
 		}
 		File file = new File(file_name);
-		GraphParser graphparser = new GraphParser(file, graph);
+		GraphParser graphparser = new GraphParser(file, mst.getChosenFlights());
 		graphparser.parse();
 	}
 
