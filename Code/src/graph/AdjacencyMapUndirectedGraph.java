@@ -76,6 +76,11 @@ public class AdjacencyMapUndirectedGraph<V,E> {
 			throw new IllegalArgumentException("Edge between u and v already exists");
 		}
 	}
+	
+	public void insertEdge(Edge<V,E> e) {
+		edges.add(e);
+	}
+	
 	public void removeEdge(Edge<V, E> e) {
 		e.getEndpoints()[0].getEdges().remove(e);
 		e.getEndpoints()[1].getEdges().remove(e);

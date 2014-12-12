@@ -7,6 +7,13 @@ public class Vertex<V, E> implements Comparable<Vertex<V,E>> {
 	private V element;
 	private Map<Vertex<V, E>,Edge<V, E>> edges;
 	private int minCostToReach;
+	private Edge<V,E> flightToReach;
+	public Edge<V, E> getFlightToReach() {
+		return flightToReach;
+	}
+	public void setFlightToReach(Edge<V, E> flightToReach) {
+		this.flightToReach = flightToReach;
+	}
 	public Vertex(V elem) {
 		element = elem;
 		edges = new HashMap<Vertex<V, E>,Edge<V, E>>();
