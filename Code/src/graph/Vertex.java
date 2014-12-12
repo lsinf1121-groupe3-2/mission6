@@ -33,6 +33,6 @@ public class Vertex<V, E> implements Comparable<Vertex<V,E>> {
 	}
 
 	public int compareTo(Vertex<V, E> o) {
-		return o.getCost() - this.getCost();
+		return this.getCost() - o.getCost();
 	}
 }// end of Vertex class
