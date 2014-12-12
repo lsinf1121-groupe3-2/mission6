@@ -41,7 +41,9 @@ public class MSTGraph {
 			Vertex<Integer,Integer> cheapestAirport = pQueue.poll();// a chaque iteration on ajoute l'aéroport le moins cher à ajouter
 			if(cheapestAirport.getCost()!=0){
 				chosenFlights.insertVertex(cheapestAirport);
-				chosenFlights.insertEdge(cheapestAirport.getFlightToReach());
+				if(cheapestAirport.getFlightToReach()!=null){
+					chosenFlights.insertEdge(cheapestAirport.getFlightToReach());
+				}
 				cheapestAirport.setFlightToReach(null);
 				cheapestAirport.setCost(0);// On met le prix de l'aéroprt à 0 pour éviter de le remettre dans la file plus tard
 				for(Edge<Integer,Integer> e : cheapestAirport.getEdges().values()){//on met à jour le prix pour atteindre les aéroports voisins
