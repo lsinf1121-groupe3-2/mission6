@@ -77,11 +77,29 @@ solutions proposées sont-elles uniques ? Ces solutions sont-elles optimales ? P
 ?} \\
 
 Puisque rien n'empêche que le coût de plusieurs connexions aériennes soit le même, plusieurs solutions valides de MST peuvent être obtenues d'un même graphe. La forme finale du MST dépendra des choix de priorité faits par la \verb+Priority Queue+ pour ces mêmes coûts.
+% Est-ce que ça vous va? C'est une copie de l'an passé xD
+Ces solutions sont optimales vu que lorsqu'on applique l'algorithme de \verb+Prim+, on conserve uniquement les arrêtes qui ont un faible coût et ce, sans avoir de cycle dans le graphe. En output, on a donc un arbre de recouvrement de poids minimal; il s'agit d'une solution optimale.\\
 
 \subsection*{Question 2}
 \textit{Analyser la complexité temporelle de votre algorithme d’un point de vue pratique et vérifier si celle-ci est conforme avec les bornes théoriques de l’algorithme retenu. Vous disposez pour cela de 2 instances particulières du problème, respectivement avec 50 et 500 villes. Au besoin, vous pouvez créer des instances complémentaires de taille variée pour affiner votre analyse. Posez-vous la question de savoir si le nombre de villes du réseau potentiel est le seul paramètre caractérisant la taille du problème. Pourquoi ?} \\
 
+Nous avons implémenté de $Prim$ en se basant sur ce qui est décrit dans le livre DSAJ-5, dans la section 13.6.2.
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{l|c|c|c}
+fichier & nombre de vols & nombre de villes & temps \\
+\hline
+cities\_small.txt & 75 & 50 & ???sec \\
+cities.txt & 1250 & 500 & ???sec \\
+\end{tabular}
+\caption{Analyse temporelle}
+\end{table}
 En théorie, la complexité temporelle de l'algorithme de \verb+Prim+ est en $O(log(n))$.
+
+\textbf{AJUSTER LA PARTIE CI-DESSOUS !!!}
+Le nombre de villes dans le réseau est potentiellement le seul argument si l'on part du fait qu'il n'existe que maximum $\frac{n*(n-1)}{2}$ liens possibles entre les villes. Rapportant donc ainsi la complexité temporelle dans le pire cas à $O(n^2 \times log n)$.
+
 
 \subsection*{Question 3}
 \textit{Décrire comment adapter la résolution du problème posé si l’on veut prendre en compte un coût additionel (fixé à 50) pour chaque ville qui sert d’étape intermédiaire pour connecter d’autres villes. Autrement dit, si dans la liste des connections retenues, l’aéroport de la ville B sert de transit pour un ou plusieurs vols reliant d’autres villes, on ajoute 50 au coût du réseau déployé pour cet aéroport de transit. Le problème devient alors de connecter l’ensemble des villes du réseau avec un coût total minimal, ce-inclus le coût des aéroports de transit. Votre algorithme de résolution de ce problème adapté a-t-il la garantie de produire une solution optimale ? Si oui, pourquoi ? Sinon, donnez un contre-exemple sur un réseau de quelques villes.} \\ 
@@ -92,8 +110,8 @@ Cette condition sera vérifiée seulement si la nouvelle arrête ajoutée a un c
 Pour implémenter cela, il suffit de recourir à l'algorithme de recherche \verb+Brute-force+. Ensuite, on va essayer toutes les combinaisons possible et sélectionner la meilleure.
 
 
-\section{Analyse de la complexité calculatoire}
-\subsection{Complexité temporelle}
+%\section{Analyse de la complexité calculatoire}
+%\subsection{Complexité temporelle}
 
 \section{Répartition du travail}
 \begin{itemize}
