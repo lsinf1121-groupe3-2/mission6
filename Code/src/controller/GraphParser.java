@@ -51,7 +51,7 @@ public class GraphParser {
 		for(Edge<Integer, Integer> edge : edges) {
 			Vertex<Integer, Integer> v[] = edge.getEndpoints();
 			try {
-				output.write(v[0].getElement().toString() + " " + v[1].getElement().toString() + " " + edge.getElement().toString()+ "\n");
+				output.write(v[0].getElement().toString() + "\t" + v[1].getElement().toString() + "\t " + edge.getElement().toString()+ "\n");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
