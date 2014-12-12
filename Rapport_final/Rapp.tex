@@ -62,60 +62,64 @@ Dans le cadre du cours "Algorithmique et structures de données", il nous a ét�
 
   
 
-\section{Implémentation}
-Tout d'abord, nous avons choisi d'implémenter la classe \verb+Controller+ qui est là seule classe appelée la \verb+Main+ classe. \verb+Controller+ appelle la classe \verb+CitiesParser+ qui permet de parser l'argument texte qui contient les villes ainsi que les coûts du vols entre deux villes afin de crée un graphe de type \verb+AdjacencyMapUndirectedGraph+. La classe \verb+AdjacencyMapUndirectedGraph+ permet de représenter et manipuler notre graphe représentant notre plan aérien.
+\section{Choix d'implémentation}
+Tout d'abord, nous avons choisi d'implémenter la classe \verb+Controller+ qui est la seule classe appelée par la \verb+Main+ classe. \verb+Controller+ appelle la classe \verb+CitiesParser+ qui permet de parser l'argument texte qui contient les villes ainsi que les coûts du vol entre deux villes afin de créer un graphe de type \verb+AdjacencyMapUndirectedGraph+. \\ La classe \verb+AdjacencyMapUndirectedGraph+ permet de représenter et manipuler notre graphe représentant notre plan aérien.
 
-Celui est ensuite transformé grâce à la classe \verb+MSTGraph+, qui s'appuie sur l'algorithme de , en graphe \verb+AdjacencyMapUndirectedGraph+ minimiser.
+Celui-ci est ensuite transformé grâce à la classe \verb+MSTGraph+, qui s'appuie sur l'algorithme de \textit{Prim}, en graphe \verb+AdjacencyMapUndirectedGraph+ minimisé.
 
 \section{Diagramme UML de classe}
+Voir Annexe.
 
 \section{Questions liées au problème posé}
 
 \subsection*{Question 1}
-Implémenter un algorithme de résolution du problème posé et produire une liste
+\textit{Implémenter un algorithme de résolution du problème posé et produire une liste
 de connections retenues pour chacun des 2 réseaux fournis comme exemples. Les
 solutions proposées sont-elles uniques ? Ces solutions sont-elles optimales ? Pourquoi
-?
+?} \\
+
+
 
 
 
 \subsection*{Question 2}
-Analyser la complexité temporelle de votre algorithme d’un point de vue pratique
+\textit{Analyser la complexité temporelle de votre algorithme d’un point de vue pratique
 et vérifier si celle-ci est conforme avec les bornes théoriques de l’algorithme retenu.
 Vous disposez pour cela de 2 instances particulières du problème, respectivement
 avec 50 et 500 villes. Au besoin, vous pouvez créer des instances complémentaires
 de taille variée pour affiner votre analyse. Posez-vous la question de
 savoir si le nombre de villes du réseau potentiel est le seul paramètre caractérisant
-la taille du problème. Pourquoi ?
+la taille du problème. Pourquoi ?} \\
 
 
 
 \subsection*{Question 3}
-Décrire comment adapter la résolution du problème posé si l’on veut prendre en
-compte un coût additionel (fixé à 50) pour chaque ville qui sert d’étape intermé-
-diaire pour connecter d’autres villes. Autrement dit, si dans la liste des connections
-retenues, l’aéroport de la ville B sert de transit pour un ou plusieurs vols
-reliant d’autres villes, on ajoute 50 au coût du réseau déployé pour cet aéroport
-de transit. Le problème devient alors de connecter l’ensemble des villes du réseau
-avec un coût total minimal, ce-inclus le coût des aéroports de transit.
-Votre algorithme de résolution de ce problème adapté a-t-il la garantie de produire
-une solution optimale ? Si oui, pourquoi ? Sinon, donnez un contre-exemple sur
-un réseau de quelques villes.
+\textit{Décrire comment adapter la résolution du problème posé si l’on veut prendre en
+compte un coût additionel (fixé à 50) pour chaque ville qui sert d’étape intermédiaire pour connecter d’autres villes. Autrement dit, si dans la liste des connections retenues, l’aéroport de la ville B sert de transit pour un ou plusieurs vols reliant d’autres villes, on ajoute 50 au coût du réseau déployé pour cet aéroport de transit. Le problème devient alors de connecter l’ensemble des villes du réseau avec un coût total minimal, ce-inclus le coût des aéroports de transit. Votre algorithme de résolution de ce problème adapté a-t-il la garantie de produire une solution optimale ? Si oui, pourquoi ? Sinon, donnez un contre-exemple sur un réseau de quelques villes.} \\
 
-
+Il suffit de regarder pour chaque ville si celle-ci est transitaire. Si c'est le cas, on devra rajouter un poids de 50 à l'arrête adjacente. Ensuite, il faudra simplement vérifier pour chaque sommet (ville) qu'il est bel et bien impossible d'en faire une ville de transit en rajoutant un vol au réseau. \\
+Cette condition sera vérifiée seulement si la nouvelle arrête ajoutée a un coût moindre que 50 $+$ le coût de l'ancienne arrête. 
 
 
 \section{Analyse de la complexité calculatoire}
 \subsection{Complexité temporelle}
 
 \section{Répartition du travail}
-
 \begin{itemize}
-\item Rédaction du rapport :
+\item Rédaction du rapport : 
 \item Conception du programme : Tanguy, Boris
 \end{itemize}
 
 \section{Difficultés rencontrées}
 Grâce aux questions de la séance intermédiaire, nous avons décortiqué le problème ce qui nous a permis de préparer correctement le partie implémentation. Nous n'avons donc pas rencontré de réel problème lors de la partie développement du programme.
+\newpage
+
+\section{Annexe}
+\begin{center}
+%\includegraphics[width=19.5cm, angle=90]{dia.jpg}
+\end{center}
+
+
+
 
 \end{document}
