@@ -44,5 +44,10 @@ public class MSTGraph {
 			}
 		}
 	}
+
+	public AdjacencyMapUndirectedGraph<Integer, Integer> getChosenFlights() {
+		return chosenFlights;
+	}
+
 }
 

@@ -1,7 +1,6 @@
 import controller.Controller;
 
 
-
 public class Main{
 	/**
 	 * Point d'entrée du programme

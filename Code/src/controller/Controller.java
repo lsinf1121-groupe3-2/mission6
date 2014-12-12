@@ -26,7 +26,13 @@ public class Controller {
 
 	public void start(String[] args) {
 		this.parseFile(args);
+		
 		mst = new MSTGraph(graph);
+		mst.initializePriorityQueue();
+		mst.primJarnik();
+		
+		graph = mst.getChosenFlights();
+		
 		this.parseGraph(args);
 	}
 	
@@ -52,7 +58,7 @@ public class Controller {
 			this.file_name = args[1];
 		}
 		File file = new File(file_name);
-		GraphParser graphparser = new GraphParser(file, mst.getChosenFlights());
+		GraphParser graphparser = new GraphParser(file, graph);
 		graphparser.parse();
 	}
 
