@@ -81,7 +81,7 @@ Puisque rien n'empêche que le coût de plusieurs connexions aériennes soit le 
 \subsection*{Question 2}
 \textit{Analyser la complexité temporelle de votre algorithme d’un point de vue pratique et vérifier si celle-ci est conforme avec les bornes théoriques de l’algorithme retenu. Vous disposez pour cela de 2 instances particulières du problème, respectivement avec 50 et 500 villes. Au besoin, vous pouvez créer des instances complémentaires de taille variée pour affiner votre analyse. Posez-vous la question de savoir si le nombre de villes du réseau potentiel est le seul paramètre caractérisant la taille du problème. Pourquoi ?} \\
 
-
+En théorie, la complexité temporelle de l'algorithme de \verb+Prim+ est en $O(log(n))$.
 
 \subsection*{Question 3}
 \textit{Décrire comment adapter la résolution du problème posé si l’on veut prendre en compte un coût additionel (fixé à 50) pour chaque ville qui sert d’étape intermédiaire pour connecter d’autres villes. Autrement dit, si dans la liste des connections retenues, l’aéroport de la ville B sert de transit pour un ou plusieurs vols reliant d’autres villes, on ajoute 50 au coût du réseau déployé pour cet aéroport de transit. Le problème devient alors de connecter l’ensemble des villes du réseau avec un coût total minimal, ce-inclus le coût des aéroports de transit. Votre algorithme de résolution de ce problème adapté a-t-il la garantie de produire une solution optimale ? Si oui, pourquoi ? Sinon, donnez un contre-exemple sur un réseau de quelques villes.} \\ 
