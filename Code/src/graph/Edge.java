@@ -1,5 +1,11 @@
 package graph;
-
+/**
+ * 
+ * @author Boris 
+ *
+ * @param <V> Type des sommets
+ * @param <E> Type des arr�tes
+ */
 public class Edge<V, E> {
 	private E element;
 	private Vertex<V, E>[] endpoints;

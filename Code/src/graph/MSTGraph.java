@@ -2,7 +2,13 @@ package graph;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
-
+/**
+ * 
+ * @author Boris 
+ *
+ * @param <V> Type des sommets
+ * @param <E> Type des arr�tes
+ */
 public class MSTGraph {
 
 	private AdjacencyMapUndirectedGraph<Integer,Integer> allFlights;

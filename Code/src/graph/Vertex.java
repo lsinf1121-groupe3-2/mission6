@@ -2,7 +2,13 @@ package graph;
 
 import java.util.HashMap;
 import java.util.Map;
-
+/**
+ * 
+ * @author Boris 
+ *
+ * @param <V> Type des sommets
+ * @param <E> Type des arr�tes
+ */
 public class Vertex<V, E> implements Comparable<Vertex<V,E>> {
 	private V element;
 	private Map<Vertex<V, E>,Edge<V, E>> edges;
