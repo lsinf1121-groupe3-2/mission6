@@ -27,32 +27,33 @@ public class MSTGraph {
 		}
 		Vertex<Integer,Integer> startVertex = pQueue.poll();
 		startVertex.setCost(0);
-		pQueue.add(startVertex);
+		chosenFlights.insertVertex(startVertex);
+		for(Edge<Integer,Integer> e : startVertex.getEdges().values()){//on met à jour le prix pour atteindre les aéroports voisins
+			Vertex<Integer,Integer> oppositeAirport = allFlights.opposite(startVertex,e);
+			oppositeAirport.setCost(e.getElement());
+			oppositeAirport.setFlightToReach(e);
+			pQueue.add(oppositeAirport);
+		}
 	}
 	
 	public void primJarnik(){
 		while(!pQueue.isEmpty()){
 			Vertex<Integer,Integer> cheapestAirport = pQueue.poll();// a chaque iteration on ajoute l'aéroport le moins cher à ajouter
-			chosenFlights.insertVertex(cheapestAirport);
-			
-			cheapestAirport.setCost(0);// On met le prix de l'aéroprt à 0 pour éviter de le remettre dans la file plus tard
-			for(Edge<Integer,Integer> e : cheapestAirport.getEdges().values()){//on met à jour le prix pour atteindre les aéroports voisins
-				Vertex<Integer,Integer> oppositeAirport = allFlights.opposite(cheapestAirport,e);
-				if(oppositeAirport.getCost()>e.getElement()){
-					oppositeAirport.setCost(e.getElement());
-					oppositeAirport.setFlightToReach(e);
-					pQueue.add(oppositeAirport);
+			if(cheapestAirport.getCost()!=0){
+				chosenFlights.insertVertex(cheapestAirport);
+				chosenFlights.insertEdge(cheapestAirport.getFlightToReach());
+				cheapestAirport.setFlightToReach(null);
+				cheapestAirport.setCost(0);// On met le prix de l'aéroprt à 0 pour éviter de le remettre dans la file plus tard
+				for(Edge<Integer,Integer> e : cheapestAirport.getEdges().values()){//on met à jour le prix pour atteindre les aéroports voisins
+					Vertex<Integer,Integer> oppositeAirport = allFlights.opposite(cheapestAirport,e);
+					if(oppositeAirport.getCost()>e.getElement()){
+						oppositeAirport.setCost(e.getElement());
+						oppositeAirport.setFlightToReach(e);
+						pQueue.add(oppositeAirport);
+					}
 				}
 			}
 		}
-		
-		for(Vertex<Integer,Integer> v : chosenFlights.getVertices()) {
-			if(v.getFlightToReach()!=null){
-				chosenFlights.insertEdge(v.getFlightToReach());
-			}
-		}
-		
-		
 	}
 
 	public AdjacencyMapUndirectedGraph<Integer, Integer> getChosenFlights() {
