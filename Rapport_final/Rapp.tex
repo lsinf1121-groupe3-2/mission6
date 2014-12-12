@@ -62,10 +62,16 @@ Dans le cadre du cours "Algorithmique et structures de données", il nous a ét�
 
   
 
+<<<<<<< HEAD
 \section{Choix d'implémentation}
 Tout d'abord, nous avons choisi d'implémenter la classe \verb+Controller+ qui est la seule classe appelée par la \verb+Main+ classe. \verb+Controller+ appelle la classe \verb+CitiesParser+ qui permet de parser l'argument texte qui contient les villes ainsi que les coûts du vol entre deux villes afin de créer un graphe de type \verb+AdjacencyMapUndirectedGraph+. \\ La classe \verb+AdjacencyMapUndirectedGraph+ permet de représenter et manipuler notre graphe représentant notre plan aérien.
 
 Celui-ci est ensuite transformé grâce à la classe \verb+MSTGraph+, qui s'appuie sur l'algorithme de \textit{Prim}, en graphe \verb+AdjacencyMapUndirectedGraph+ minimisé.
+=======
+\section{Implémentation}
+Tout d'abord, nous avons choisi d'implémenter la classe \verb+Controller+ qui est là seule classe appelée  par la \verb+Main+ classe. \verb+Controller+ appelle la classe \verb+CitiesParser+ qui permet de parser l'argument texte qui contient les villes ainsi que les coûts des vols entre deux villes afin de crée un graphe de type \verb+AdjacencyMapUndirectedGraph+. La classe \verb+AdjacencyMapUndirectedGraph+ permet de représenter et manipuler notre graphe représentant notre plan aérien.
+Celui-ci est ensuite transformé grâce à la classe \verb+MSTGraph+, qui s'appuie sur l'algorithme de Prim, en arbre couvrant de poids minimal (Minimum Spanning Tree).
+>>>>>>> origin/master
 
 \section{Diagramme UML de classe}
 Voir Annexe.
@@ -80,7 +86,9 @@ solutions proposées sont-elles uniques ? Ces solutions sont-elles optimales ? P
 
 
 
-
+Puisque rien n'empêche que le coût de plusieurs connexions aériennes soit
+le même, plusieurs solutions valides de MST peuvent être obtenues d'un même
+graphe. La forme finale du MST dépendra des choix de priorité fait par la Priority Queue pour ces même coûts.
 
 \subsection*{Question 2}
 \textit{Analyser la complexité temporelle de votre algorithme d’un point de vue pratique

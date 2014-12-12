@@ -10,7 +10,7 @@ import java.util.Map;
  * @author Boris & Tanguy
  *
  * @param <V> Type des sommets
- * @param <E> Type des arrêtes
+ * @param <E> Type des arrï¿½tes
  */
 public class AdjacencyMapUndirectedGraph<V,E> {
 	private ArrayList<Vertex<V, E>> vertices;
@@ -87,4 +87,10 @@ public class AdjacencyMapUndirectedGraph<V,E> {
 		}
 		vertices.remove(v);
 	}
+
+	public ArrayList<Edge<V, E>> getEdges() {
+		return edges;
+	}
+	
+	
 }
