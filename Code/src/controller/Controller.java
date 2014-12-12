@@ -2,6 +2,7 @@ package controller;
 
 import graph.AdjacencyMapUndirectedGraph;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -15,6 +16,7 @@ import controller.exceptions.UncorrectLineException;
 public class Controller {
 	CitiesParser citiesParser;
 	AdjacencyMapUndirectedGraph<Integer,Integer> graph;
+	String file_name = "result.txt";
 	
 	public Controller() {
 		citiesParser = new CitiesParser();
@@ -22,6 +24,7 @@ public class Controller {
 
 	public void start(String[] args) {
 		this.parseFile(args);
+		this.parseGraph(args);
 	}
 	
 	private void parseFile(String[] args){
@@ -39,6 +42,15 @@ public class Controller {
 			}
 			e.printStackTrace();
 		}
+	}
+	
+	private void parseGraph(String[] args){
+		if(args.length == 2) {
+			this.file_name = args[1];
+		}
+		File file = new File(file_name);
+		GraphParser graphparser = new GraphParser(file, graph);
+		graphparser.parse();
 	}
 
 }
